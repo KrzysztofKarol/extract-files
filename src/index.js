@@ -30,7 +30,8 @@ export function extractFiles(tree, treePath = '') {
 
       if (
         // Node is a File
-        (typeof File !== 'undefined' && node[key] instanceof File) ||
+        (typeof File !== 'undefined' &&
+          Object.prototype.toString.call(node[key]) === '[object File]') ||
         // Node is a ReactNativeFile
         node[key] instanceof ReactNativeFile
       ) {
